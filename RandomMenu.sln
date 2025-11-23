@@ -1,0 +1,42 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RandomMenuLambda", "RandomMenuLambda", "{A8982B8F-9BD0-FFF0-8F4C-ACDD3822B03F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AC0EBCF6-894F-BBC8-780F-548F6F0346EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomMenuLambda", "RandomMenuLambda\src\RandomMenuLambda\RandomMenuLambda.csproj", "{FDE2503C-BE02-10F7-90AE-6FD49D1BDC63}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{00F8E034-6987-D380-0634-BFB777D764F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomMenuLambda.Tests", "RandomMenuLambda\test\RandomMenuLambda.Tests\RandomMenuLambda.Tests.csproj", "{0251954F-3449-BD92-DA8E-7FFE33BECB4F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FDE2503C-BE02-10F7-90AE-6FD49D1BDC63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDE2503C-BE02-10F7-90AE-6FD49D1BDC63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDE2503C-BE02-10F7-90AE-6FD49D1BDC63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDE2503C-BE02-10F7-90AE-6FD49D1BDC63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0251954F-3449-BD92-DA8E-7FFE33BECB4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0251954F-3449-BD92-DA8E-7FFE33BECB4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0251954F-3449-BD92-DA8E-7FFE33BECB4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0251954F-3449-BD92-DA8E-7FFE33BECB4F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AC0EBCF6-894F-BBC8-780F-548F6F0346EE} = {A8982B8F-9BD0-FFF0-8F4C-ACDD3822B03F}
+		{FDE2503C-BE02-10F7-90AE-6FD49D1BDC63} = {AC0EBCF6-894F-BBC8-780F-548F6F0346EE}
+		{00F8E034-6987-D380-0634-BFB777D764F6} = {A8982B8F-9BD0-FFF0-8F4C-ACDD3822B03F}
+		{0251954F-3449-BD92-DA8E-7FFE33BECB4F} = {00F8E034-6987-D380-0634-BFB777D764F6}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A5F57C57-2221-4BE5-BD0E-23E6BB3DF4A3}
+	EndGlobalSection
+EndGlobal

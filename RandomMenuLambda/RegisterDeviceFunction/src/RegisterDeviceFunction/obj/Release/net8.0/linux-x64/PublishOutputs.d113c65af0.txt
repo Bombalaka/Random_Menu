@@ -1,0 +1,12 @@
+C:\Users\yotak\RandomMenu\RandomMenuLambda\RegisterDeviceFunction\src\RegisterDeviceFunction\bin\Release\net8.0\publish\RegisterDeviceFunction.deps.json
+C:\Users\yotak\RandomMenu\RandomMenuLambda\RegisterDeviceFunction\src\RegisterDeviceFunction\bin\Release\net8.0\publish\RegisterDeviceFunction.runtimeconfig.json
+C:\Users\yotak\RandomMenu\RandomMenuLambda\RegisterDeviceFunction\src\RegisterDeviceFunction\bin\Release\net8.0\publish\RegisterDeviceFunction.pdb
+C:\Users\yotak\RandomMenu\RandomMenuLambda\RegisterDeviceFunction\src\RegisterDeviceFunction\bin\Release\net8.0\publish\Models.pdb
+C:\Users\yotak\RandomMenu\RandomMenuLambda\RegisterDeviceFunction\src\RegisterDeviceFunction\bin\Release\net8.0\publish\Amazon.Lambda.APIGatewayEvents.dll
+C:\Users\yotak\RandomMenu\RandomMenuLambda\RegisterDeviceFunction\src\RegisterDeviceFunction\bin\Release\net8.0\publish\Amazon.Lambda.Core.dll
+C:\Users\yotak\RandomMenu\RandomMenuLambda\RegisterDeviceFunction\src\RegisterDeviceFunction\bin\Release\net8.0\publish\Amazon.Lambda.Serialization.SystemTextJson.dll
+C:\Users\yotak\RandomMenu\RandomMenuLambda\RegisterDeviceFunction\src\RegisterDeviceFunction\bin\Release\net8.0\publish\AWSSDK.Core.dll
+C:\Users\yotak\RandomMenu\RandomMenuLambda\RegisterDeviceFunction\src\RegisterDeviceFunction\bin\Release\net8.0\publish\AWSSDK.DynamoDBv2.dll
+C:\Users\yotak\RandomMenu\RandomMenuLambda\RegisterDeviceFunction\src\RegisterDeviceFunction\bin\Release\net8.0\publish\AWSSDK.SimpleSystemsManagement.dll
+C:\Users\yotak\RandomMenu\RandomMenuLambda\RegisterDeviceFunction\src\RegisterDeviceFunction\bin\Release\net8.0\publish\Models.dll
+C:\Users\yotak\RandomMenu\RandomMenuLambda\RegisterDeviceFunction\src\RegisterDeviceFunction\bin\Release\net8.0\publish\RegisterDeviceFunction.dll

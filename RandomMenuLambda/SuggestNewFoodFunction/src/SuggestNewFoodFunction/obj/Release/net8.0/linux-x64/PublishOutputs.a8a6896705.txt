@@ -1,0 +1,13 @@
+C:\Users\yotak\RandomMenu\RandomMenuLambda\SuggestNewFoodFunction\src\SuggestNewFoodFunction\bin\Release\net8.0\publish\SuggestNewFoodFunction.deps.json
+C:\Users\yotak\RandomMenu\RandomMenuLambda\SuggestNewFoodFunction\src\SuggestNewFoodFunction\bin\Release\net8.0\publish\SuggestNewFoodFunction.runtimeconfig.json
+C:\Users\yotak\RandomMenu\RandomMenuLambda\SuggestNewFoodFunction\src\SuggestNewFoodFunction\bin\Release\net8.0\publish\SuggestNewFoodFunction.pdb
+C:\Users\yotak\RandomMenu\RandomMenuLambda\SuggestNewFoodFunction\src\SuggestNewFoodFunction\bin\Release\net8.0\publish\Models.pdb
+C:\Users\yotak\RandomMenu\RandomMenuLambda\SuggestNewFoodFunction\src\SuggestNewFoodFunction\bin\Release\net8.0\publish\Amazon.Lambda.APIGatewayEvents.dll
+C:\Users\yotak\RandomMenu\RandomMenuLambda\SuggestNewFoodFunction\src\SuggestNewFoodFunction\bin\Release\net8.0\publish\Amazon.Lambda.Core.dll
+C:\Users\yotak\RandomMenu\RandomMenuLambda\SuggestNewFoodFunction\src\SuggestNewFoodFunction\bin\Release\net8.0\publish\Amazon.Lambda.Serialization.SystemTextJson.dll
+C:\Users\yotak\RandomMenu\RandomMenuLambda\SuggestNewFoodFunction\src\SuggestNewFoodFunction\bin\Release\net8.0\publish\AWSSDK.BedrockRuntime.dll
+C:\Users\yotak\RandomMenu\RandomMenuLambda\SuggestNewFoodFunction\src\SuggestNewFoodFunction\bin\Release\net8.0\publish\AWSSDK.Core.dll
+C:\Users\yotak\RandomMenu\RandomMenuLambda\SuggestNewFoodFunction\src\SuggestNewFoodFunction\bin\Release\net8.0\publish\AWSSDK.DynamoDBv2.dll
+C:\Users\yotak\RandomMenu\RandomMenuLambda\SuggestNewFoodFunction\src\SuggestNewFoodFunction\bin\Release\net8.0\publish\AWSSDK.SimpleSystemsManagement.dll
+C:\Users\yotak\RandomMenu\RandomMenuLambda\SuggestNewFoodFunction\src\SuggestNewFoodFunction\bin\Release\net8.0\publish\Models.dll
+C:\Users\yotak\RandomMenu\RandomMenuLambda\SuggestNewFoodFunction\src\SuggestNewFoodFunction\bin\Release\net8.0\publish\SuggestNewFoodFunction.dll
