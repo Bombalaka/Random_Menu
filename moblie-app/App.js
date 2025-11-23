@@ -21,7 +21,6 @@ import { COLORS } from './utils/colors';
 
 
 
-
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -31,6 +30,7 @@ function Home({ navigation }) {
     <View style={styles.container}>
       <Image source={require('./assets/logo-cat.png')} style={styles.logo} />
       <Text style={styles.title}>Welcom to the Random Menu App!</Text>
+      
     </View>
   )
 }

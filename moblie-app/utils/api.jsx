@@ -151,3 +151,39 @@ export const editFood = async (foodName, foodId) => {
         return handleApiError(error);
     }
 };
+
+export const getFoodImage = async (foodName) => {
+    try {
+        // Try full name first
+        let response = await fetch(
+            `https://www.themealdb.com/api/json/v1/1/search.php?s=${foodName}`
+        );
+        let data = await response.json();
+        
+        // If not found, try first word only
+        if (!data.meals || data.meals.length === 0) {
+            const firstWord = foodName.split(' ')[0];
+            console.log(`🔍 "${foodName}" not found, trying "${firstWord}"...`);
+            
+            response = await fetch(
+                `https://www.themealdb.com/api/json/v1/1/search.php?s=${firstWord}`
+            );
+            data = await response.json();
+        }
+        
+        // Return image if found
+        if (data.meals && data.meals.length > 0) {
+            console.log(`✅ Found image for "${foodName}"`);
+            return data.meals[0].strMealThumb;
+        }
+        
+        // Fallback to cheese image
+        console.log(`⚠️ No image found for "${foodName}", using fallback`);
+        return 'https://www.themealdb.com/images/ingredients/Cheese.png';
+        
+    } catch (error) {
+        console.log("❌ Error getting food image:", error.message);
+        // Return fallback instead of null
+        return 'https://www.themealdb.com/images/ingredients/Cheese.png';
+    }
+};

@@ -1,7 +1,7 @@
-import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Alert, Image } from 'react-native';
 import { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { generateMenu, getFoods } from '../utils/api';
+import { generateMenu, getFoods, getFoodImage } from '../utils/api';
 import { COLORS } from '../utils/colors';
 
 
@@ -11,6 +11,8 @@ const GenerateMenu = () => {
   const [menu, setMenu] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [foodCount, setFoodCount] = useState(0);
+  const [foodImage, setFoodImage] = useState(null);
+
 
   useEffect(() => {
     const loadFoodCount = async () => {
@@ -28,14 +30,19 @@ const GenerateMenu = () => {
     setIsLoading(true);
     // call api to generate menu
     const result = await generateMenu();
-    setIsLoading(false);
+    
 
     //handle the result
     if(result.success){
       // Backend returns { menu: [...] }, so we need to access result.data.menu
       // This keeps frontend and backend separate - if backend changes, we only change this line
       const menuData = result.data?.menu?.FoodName || null;
+      console.log("🔍 Menu data:", menuData);
       setMenu(menuData);
+      //get food image from themealDB.com
+      const foodImage = await getFoodImage(menuData);
+      setFoodImage(foodImage);
+      console.log("🔍 Food image:", foodImage);
   } else if(result.needsReregistration){
       // Session expired - tell user to restart
       Alert.alert(
@@ -47,6 +54,8 @@ const GenerateMenu = () => {
       // Other errors
       Alert.alert("Error", result.error || "Could not load menu");
   }
+  setIsLoading(false);
+  
 };
 
   return (
@@ -66,6 +75,9 @@ const GenerateMenu = () => {
       {menu != null && (
         <View style={styles.menuContainer}>
           <Text style={styles.menuTitle}>Your Random Menu:</Text>
+          {foodImage && (
+            <Image source={{ uri: foodImage }} style={styles.foodImage} />
+          )}
           <Text style={styles.menuFood}>{menu|| 'No menu found'}</Text>
         </View>
       )}
@@ -159,6 +171,11 @@ const styles = StyleSheet.create({
     color: COLORS.textMedium,
     marginTop: 20,
   },
-
+  foodImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 5,
+    marginBottom: 10,
+  },
 });
 
