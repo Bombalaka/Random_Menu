@@ -35,7 +35,7 @@ export default function WelcomeScreen({ navigation, onRegisterSuccess  }) {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Welcome!</Text>
-            <Text style={styles.subtitle}>Enter your name to start eating random food</Text>
+            <Text style={styles.subtitle}>Enter your name to start getting random food</Text>
             <Image source={require('../assets/logo-cat.png')} style={styles.logo} />
 
             <TextInput 
@@ -53,7 +53,7 @@ export default function WelcomeScreen({ navigation, onRegisterSuccess  }) {
                 {isLoading ? (
                     <ActivityIndicator color="white" />
                 ) : (
-                    <Text style={styles.buttonText}>Start Eating Random Food 🚀</Text>
+                    <Text style={styles.buttonText}>Start Eating Now 🚀</Text>
                 )}
             </TouchableOpacity>
         </View>
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
         alignItems: 'center' },
         shadowColor: COLORS.shadow,
     buttonText: { 
-        color: COLORS.textLight,
+        color: COLORS.textDark,
         fontSize: 18, 
         fontWeight: 'bold',
         textAlign: 'center',

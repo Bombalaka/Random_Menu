@@ -74,6 +74,8 @@ function TabNavigator() {
   )
 }
 
+
+//check registration and show welcome screen if not registered
 export default function App() {
   const [isRegistered, setIsRegistered] = useState(null);
   useEffect(() => {
@@ -112,7 +114,7 @@ export default function App() {
           //not registered? show welcome screen
           <Stack.Screen 
             name="Welcome" 
-            options={{ title: 'Welcome to the Random Menu App' }}
+            options={{ headerShown: false }}
           >
             {(props) => (
               <WelcomeScreen {...props} 
@@ -126,6 +128,7 @@ export default function App() {
         ) : (
           //resgistered? show home screen with tabs
           <>
+          {/* show home screen with tabs */}
             <Stack.Screen 
               name="MainTabs" 
               component={TabNavigator}
