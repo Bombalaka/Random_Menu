@@ -17,7 +17,7 @@ import Suggestions from './screens/Suggestions';
 import EditFood from './screens/EditFood';
 import RecipeDetail from './screens/RecipeDetail';
 import { COLORS } from './utils/colors';
-
+import SplashScreen from './screens/SplashScreen';
 
 
 
@@ -26,12 +26,29 @@ const Tab = createBottomTabNavigator();
 
 // This is the Home tab content - just shows logo and welcome text
 function Home({ navigation }) {
+  const [foodCount, setFoodCount] = useState(0);
+  useEffect(() => {
+    getFoods().then(result => {
+      if(result.success) {
+        setFoodCount(result.data.foods.length);
+      }
+    });
+  }, []);
   return (
     <View style={styles.container}>
       <Image source={require('./assets/logo-cat.png')} style={styles.logo} />
       <Text style={styles.title}>Welcom to the Random Menu App!</Text>
-      
+      <Text style={{ marginBottom: 20, fontWeight: 'italic', color: COLORS.textMedium }}>Hungry? Let fate decide.</Text>
+
+      <View style={styles.statsContainer}>
+        <View style={styles.statBadge}>
+          <Text style={styles.statEmoji}>🥗</Text>
+          <Text style={styles.statText}>{foodCount} Foods Saved</Text>
+        </View>
+      </View>
     </View>
+    
+    
   )
 }
 
@@ -78,6 +95,7 @@ function TabNavigator() {
 //check registration and show welcome screen if not registered
 export default function App() {
   const [isRegistered, setIsRegistered] = useState(null);
+  const [isSplashScreen, setIsSplashScreen] = useState(true);
   useEffect(() => {
     checkRegistration();
   }, []);
@@ -99,17 +117,25 @@ export default function App() {
     }
     
     setIsRegistered(registered === 'true'); // Show Home screen
-};
+  };
+
+  //This function runs when the Lottie animation timer finishes
+  // It's defined here (at component level) so it can be passed to SplashScreen
+  const handleSplashFinish = () => {
+    setIsSplashScreen(false);
+  };
 
 
   //if not registered, show welcome screen
-  if(isRegistered === null){
-    return <ActivityIndicator size="large" color="#0000ff" />;
+  // If the animation is still playing OR we are still checking the database...
+  // ... Keep showing the Splash Screen
+  if(isSplashScreen || isRegistered === null){
+    return (<SplashScreen onFinish={handleSplashFinish} />);
   }
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions={{ animation: 'slide_from_right' }}>
         {!isRegistered ? (
           //not registered? show welcome screen
           <Stack.Screen 
@@ -132,7 +158,7 @@ export default function App() {
             <Stack.Screen 
               name="MainTabs" 
               component={TabNavigator}
-              options={{ headerShown: false }}
+              options={{ headerShown: false}}
             />
             <Stack.Screen 
               name="AddFood" 
@@ -141,7 +167,8 @@ export default function App() {
                 backgroundColor: COLORS.coral,  // Different color for this screen
               }, headerTintColor: COLORS.textDark, headerTitleStyle: {
                 fontWeight: 'bold',
-              }}}
+              }, animation: 'slide_from_bottom', presentation: 'modal' }}
+              
             />
             <Stack.Screen 
               name="GenerateMenu" 
@@ -165,7 +192,7 @@ export default function App() {
             <Stack.Screen 
               name="EditFood" 
               component={EditFood}
-              options={{ title: 'Edit Food', headerShown: false }} 
+              options={{ title: 'Edit Food', headerShown: false, animation: 'slide_from_bottom', presentation: 'modal' }} 
             />
             <Stack.Screen 
               name="RecipeDetail" 
@@ -215,9 +242,33 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     },
     logo: {
-        width: 100,
-        height: 100,
+        width: 250,
+        height: 250,
         borderRadius: 30,
         marginBottom: 20,
-    }
+    },
+    statsContainer: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      gap: 10,
+    },
+    statBadge: {
+      flexDirection: 'row',
+      backgroundColor: COLORS.cardBackground, // Use a light background (like white)
+      paddingVertical: 10,
+      paddingHorizontal: 20,
+      borderRadius: 25, // Fully rounded "Pill" shape
+      borderWidth: 1,
+      borderColor: COLORS.border,
+      alignItems: 'center',
+      gap: 8,
+    },
+    statEmoji: {
+      fontSize: 24,
+    },
+    statText: {
+      fontSize: 16,
+      fontWeight: '600',
+      color: COLORS.textDark,
+    },
 });
