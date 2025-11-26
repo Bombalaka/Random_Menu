@@ -69,14 +69,18 @@ public class Function
             };
         }
        
-        //check if device is already registered
-        var isRegistered = await DeviceHelper.IsDeviceRegisteredAsync(deviceRegistration.deviceId);
-        if (isRegistered)
+        //check if device is already registered and get device information
+        //var isRegistered = await DeviceHelper.IsDeviceRegisteredAsync(deviceRegistration.deviceId);
+        var deviceInfo = await DeviceHelper.GetDeviceInfoAsync(deviceRegistration.deviceId);
+        if (deviceInfo != null)
         {
             return new APIGatewayProxyResponse
             {
                 StatusCode = 200,
-                Body = JsonSerializer.Serialize(new { message = "Device is already registered" }),
+                Body = JsonSerializer.Serialize(new { 
+                    message = "Device is already registered",
+                    deviceId = deviceInfo.deviceId,
+                    username = deviceInfo.username }),
                 Headers = new Dictionary<string, string>
                 {
                     { "Content-Type", "application/json" }

@@ -55,4 +55,48 @@ public static class DeviceHelper
         }
        };
     }
+    //Get devices information and return full device registration object  
+    public static async Task<DeviceRegistration> GetDeviceInfoAsync(string deviceId)
+    {
+        try
+        {
+            //get the register table name 
+            var deviceRegistryTableName = await ConfigHelper.GetDeviceRegistryTableNameAsync();
+            //create dynamo db client
+            var dynamoDbClient = new AmazonDynamoDBClient();
+            //create get item request
+            var getItemRequest = new GetItemRequest
+            {
+                TableName = deviceRegistryTableName,
+                Key = new Dictionary<string, AttributeValue>
+                {
+                    { "deviceId", new AttributeValue(deviceId) }
+                }
+            };
+            //execute get item and return DeviceRegistration
+            var getItemResponse = await dynamoDbClient.GetItemAsync(getItemRequest);
+            
+            // Check if item exists
+            if (getItemResponse.Item == null || getItemResponse.Item.Count == 0)
+            {
+                return null;
+            }
+            
+            // Extract values from DynamoDB AttributeValue objects
+            var item = getItemResponse.Item;
+            return new DeviceRegistration
+            {
+                deviceId = item["deviceId"].S,
+                username = item["username"].S,
+                createdAt = DateTime.Parse(item["createdAt"].S),
+                lastLogin = DateTime.Parse(item["lastLogin"].S)
+            };
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error getting device information: {ex.Message}");
+            return null;
+        }
+    }
+
 }
