@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="RegisterDeviceFunction">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/RandomMenuLambda/RegisterDeviceFunction/src/RegisterDeviceFunction/bin/Release/net8.0/RegisterDeviceFunction.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

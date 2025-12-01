@@ -56,6 +56,23 @@ public static class ConfigHelper
         var response = await client.GetParameterAsync(request);
         return response.Parameter.Value;
     }
-    
-
+    //for suggestion history table name
+    public static async Task<string> GetSuggestionHistoryTableNameAsync()
+    {
+        try
+        {
+            return await GetParameterAsync("/random-menu-app/suggestiontable");
+        }
+        catch (ParameterNotFoundException)
+        {
+            //Fallback to default value
+            return "FoodSuggestHistory";
+        }
+        catch (Exception ex)
+        {
+            //Log error and use default value
+            Console.WriteLine($"Error getting suggestion history table name: {ex.Message}");
+            return "FoodSuggestHistory";
+        }
+    }
 }

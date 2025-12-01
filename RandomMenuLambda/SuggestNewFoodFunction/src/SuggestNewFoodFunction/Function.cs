@@ -23,8 +23,12 @@ namespace SuggestNewFoodFunction;
 public class Function
 {
     private static readonly AmazonBedrockRuntimeClient _bedrockRuntimeClient = new AmazonBedrockRuntimeClient();
+   
     public async Task<APIGatewayProxyResponse> FunctionHandler(APIGatewayProxyRequest request, ILambdaContext context)
     {
+        //get suggestion history table name from config helper
+        var suggestionHistoryTableName = await ConfigHelper.GetSuggestionHistoryTableNameAsync();
+
         //get deviceId from query parameters
         if (request.QueryStringParameters == null || !request.QueryStringParameters.ContainsKey("deviceId"))
         {
@@ -74,6 +78,29 @@ public class Function
             .Select(item => item["FoodName"].S)
             .ToList();
 
+        //calculate date 7 days ago
+        DateTime sevenDaysAgo = DateTime.UtcNow.AddDays(-7);
+        //query past suggestion
+        var suggestionHistoryQueryRequest = new QueryRequest
+        {
+            TableName = suggestionHistoryTableName,
+            KeyConditionExpression = "deviceId = :v_deviceId AND suggestionDate >= :v_date",
+            ExpressionAttributeValues = new Dictionary<string, AttributeValue>
+            {
+                { ":v_deviceId", new AttributeValue {S = deviceId}},
+                { ":v_date", new AttributeValue {S = sevenDaysAgo.ToString("o")}}
+            }
+        };
+        //execute query
+        var suggestionHistoryResponse = await dynamoDbClient.QueryAsync(suggestionHistoryQueryRequest);
+        //Extract previousSuggestions list
+        var previousSuggestions  = suggestionHistoryResponse.Items
+            .Select(item => item["suggestedFood"].S)
+            .ToList();
+
+       
+
+        
         //handle is user has no food saved
         if (favoriteFoodNames.Count == 0)
         {
@@ -87,12 +114,20 @@ public class Function
                 }
             };
         }
+
+        //build exclusion text for AI
+        var exclusionText = "";
+        if (previousSuggestions.Count > 0)
+        {
+            exclusionText = $"\n\nIMPORTANT: You have ALREADY suggested these foods: {string.Join(", ", previousSuggestions)}\nDo NOT suggest any of these again. Suggest something COMPLETELY DIFFERENT.";
+        }
         
         //build ai promt : system promt
         var systemPrompt = $"You are a food discovery assistant that helps users find new foods similar to their favorites. Analyze the user's taste preferences and suggest new foods they would likely enjoy. Always include a complete recipe in valid JSON format.";
 
         //build ai promt : user prompt
         var userPrompt = $@"Based on these favorite foods: {string.Join(", ", favoriteFoodNames)}
+        {exclusionText}
         Suggest ONE new food that is similar but different from these favorites.
         Return ONLY valid JSON (no markdown) with this structure:
         {{
@@ -158,14 +193,45 @@ public class Function
             };
             var foodDiscovery = JsonSerializer.Deserialize<FoodDiscovery>(text, options);
 
+            
+
             //build food discovery response(how ai returned the data)
             var foodDiscoveryResponse = new FoodDiscovery
             {
                 SuggestedFood = foodDiscovery.SuggestedFood, //new food name suggested by AI
                 Reason = foodDiscovery.Reason, //reason for the suggested food name
                 Recipe = foodDiscovery.Recipe, //recipe object
-                BasedOnFavorites = favoriteFoodNames //list of user's favorite foods (from dynamo db)
+                BasedOnFavorites = favoriteFoodNames //list of user's favorite foods (from dynamo db) which foods AI considered
             };
+
+            //save new suggested food to suggestion history
+            var currentDate = DateTime.UtcNow.ToString("o");
+            var putItemRequest = new PutItemRequest
+            {
+                TableName = suggestionHistoryTableName,
+                Item = new Dictionary<string, AttributeValue>
+                {
+                    { "deviceId", new AttributeValue { S = deviceId } },
+                    { "suggestedFood", new AttributeValue { S = foodDiscovery.SuggestedFood } },
+                    { "suggestionDate", new AttributeValue { S = currentDate } },
+                    { "BasedOnFavorites", new AttributeValue { L = favoriteFoodNames.Select(food => new AttributeValue { S = food }).ToList() }},
+                    { "Reason", new AttributeValue { S = foodDiscovery.Reason } },
+                    { "suggestionType", new AttributeValue { S = "Favorite" } }
+                    
+                }
+            };
+
+            //execute put item request
+            try{
+                await dynamoDbClient.PutItemAsync(putItemRequest);
+                context.Logger.LogLine("Suggestion saved to history successfully");
+            }
+            catch (Exception ex)
+            {
+                context.Logger.LogLine($"Error saving suggestion history: {ex.Message}");
+            }
+
+
             return new APIGatewayProxyResponse
             {
                 StatusCode = 200,

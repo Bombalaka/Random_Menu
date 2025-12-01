@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SuggestByCriteriaFunction")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5647674e9ed360a9a080dcf20e85af333366e027")]
 [assembly: System.Reflection.AssemblyProductAttribute("SuggestByCriteriaFunction")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SuggestByCriteriaFunction")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

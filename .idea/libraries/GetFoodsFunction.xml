@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="GetFoodsFunction">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/RandomMenuLambda/GetFoodsFunction/src/GetFoodsFunction/bin/Release/net8.0/GetFoodsFunction.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="DeleteFoodFunction">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/RandomMenuLambda/DeleteFoodFunction/src/DeleteFoodFunction/bin/Release/net8.0/DeleteFoodFunction.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

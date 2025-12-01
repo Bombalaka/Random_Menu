@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="GenerateMenu">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/RandomMenuLambda/GenerateMenu/src/GenerateMenu/bin/Release/net8.0/GenerateMenu.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
