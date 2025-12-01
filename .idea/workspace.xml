@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef5a03d2-b6f1-4d91-bf33-df31dc444775" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/RandomMenuLambda/src/RandomMenuLambda/obj/Debug/net8.0/RandomMenuLambda.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RandomMenuLambda/src/RandomMenuLambda/obj/Debug/net8.0/RandomMenuLambda.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RandomMenuLambda/src/RandomMenuLambda/obj/Debug/net8.0/RandomMenuLambda.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/RandomMenuLambda/src/RandomMenuLambda/obj/Debug/net8.0/RandomMenuLambda.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RandomMenuLambda/test/RandomMenuLambda.Tests/obj/Debug/net8.0/RandomMenuLambda.Tests.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RandomMenuLambda/test/RandomMenuLambda.Tests/obj/Debug/net8.0/RandomMenuLambda.Tests.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RandomMenuLambda/test/RandomMenuLambda.Tests/obj/Debug/net8.0/RandomMenuLambda.Tests.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/RandomMenuLambda/test/RandomMenuLambda.Tests/obj/Debug/net8.0/RandomMenuLambda.Tests.AssemblyInfoInputs.cache" afterDir="false" />
-    </list>
+    <list default="true" id="ef5a03d2-b6f1-4d91-bf33-df31dc444775" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

@@ -7,7 +7,7 @@ import { COLORS } from '../utils/colors';
 import LottieView from 'lottie-react-native';
 import Animated, {FadeInDown} from 'react-native-reanimated';
 import generateMenuAnimation from '../assets/food around the city.json';
-
+import { getFoodsImage } from '../utils/ImageHelper';
 
 const GenerateMenu = () => {
   const navigation = useNavigation(); // Get navigation object using hook
@@ -52,8 +52,8 @@ const GenerateMenu = () => {
       const menuData = result.data?.menu?.FoodName || null;
       console.log("🔍 Menu data:", menuData);
       setMenu(menuData);
-      //get food image from themealDB.com
-      const foodImage = await getFoodImage(menuData);
+      //get food image from imagehelper
+      const foodImage = await getFoodsImage(menuData);
       setFoodImage(foodImage);
       console.log("🔍 Food image:", foodImage);
   } else if(result.needsReregistration){
@@ -95,7 +95,16 @@ const GenerateMenu = () => {
           <Animated.View style={styles.menuContainer} entering={FadeInDown.duration(600).springify()}>
             <Text style={styles.menuTitle}>Your Menu:</Text>
             {foodImage && (
-              <Image source={{ uri: foodImage }} style={styles.foodImage} />
+              <View>
+                {(foodImage.type === 'mealdb' || foodImage.type === 'pexels') && (
+                  <View>
+                    <Image source={{ uri: foodImage.url }} style={styles.foodImage} />
+                    {foodImage.credit && (
+                      <Text style={styles.credit}>{foodImage.credit}</Text>
+                    )}
+                  </View>
+                )}
+              </View>
             )}
             <Text style={styles.menuFood}>{menu|| 'No menu found'}</Text>
           </Animated.View>
@@ -212,13 +221,19 @@ const styles = StyleSheet.create({
     
   },
   loadingAnimation: {
-    width: 200,
-    height: 200,
+    width: 300,
+    height: 300,
   },
   loadingText: {
     fontSize: 16,
     color: COLORS.textMedium,
     marginTop: 10,
+    textAlign: 'center',
+  },
+  credit: {
+    fontSize: 12,
+    color: COLORS.textMedium,
+    marginTop: 5,
     textAlign: 'center',
   },
 
