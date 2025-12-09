@@ -13,6 +13,7 @@ export const getGreeting = () => {
         return 'Good Afternoon';
     }
     
+    
     // Evening/Night: 6 PM to 5:59 AM (hours 18-23 or 0-5)
     return 'Good Evening';
 };

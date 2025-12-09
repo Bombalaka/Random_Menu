@@ -90,7 +90,7 @@ const GenerateMenu = () => {
           <Text style={styles.loadingText}>Generating menu...</Text>
         </View>
       ) : (
-        //THE RESULT (Animated "Pop" Reveal)
+        //THE RESULT 
         menu != null && (
           <Animated.View style={styles.menuContainer} entering={FadeInDown.duration(600).springify()}>
             <Text style={styles.menuTitle}>Your Menu:</Text>

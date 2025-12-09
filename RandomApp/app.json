@@ -6,9 +6,8 @@
     "orientation": "portrait",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
-    "icon": "./assets/icon1.png",
+    "icon": "./assets/icon04.PNG",
     "splash": {
-      "image": "./assets/icon1.png",
       "resizeMode": "contain",
       "backgroundColor": "#FFCE18"
     },
@@ -17,7 +16,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icon1.png",
+        "foregroundImage": "./assets/icon04.PNG",
         "backgroundColor": "#FFCE18"
       },
       "edgeToEdgeEnabled": true,

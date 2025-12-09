@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RandomMenuLambda")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5647674e9ed360a9a080dcf20e85af333366e027")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+00d8c0a2ab68cd8addb4b57772e29aa2735f472e")]
 [assembly: System.Reflection.AssemblyProductAttribute("RandomMenuLambda")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RandomMenuLambda")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

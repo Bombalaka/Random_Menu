@@ -74,7 +74,7 @@ public class Function
             foodItem.FoodName = foodItem.FoodName.Trim().ToLower();
         }
 
-        //Validation lenghts of deviceId, FoodName 
+        //Validation lenghts of deviceId
         if (foodItem.deviceId.Length < 10)
         {
             return new APIGatewayProxyResponse

@@ -26,7 +26,7 @@ public class Function
    
     public async Task<APIGatewayProxyResponse> FunctionHandler(APIGatewayProxyRequest request, ILambdaContext context)
     {
-        //get suggestion history table name from config helper
+        //get suggestion history table name from config helper(suggestion table that save food suggestions before they are saved to foods table)
         var suggestionHistoryTableName = await ConfigHelper.GetSuggestionHistoryTableNameAsync();
 
         //get deviceId from query parameters
@@ -200,7 +200,7 @@ public class Function
             {
                 SuggestedFood = foodDiscovery.SuggestedFood, //new food name suggested by AI
                 Reason = foodDiscovery.Reason, //reason for the suggested food name
-                Recipe = foodDiscovery.Recipe, //recipe object
+                Reason = foodDiscovery.Recipe, //recipe object
                 BasedOnFavorites = favoriteFoodNames //list of user's favorite foods (from dynamo db) which foods AI considered
             };
 
