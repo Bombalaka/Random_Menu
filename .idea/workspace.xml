@@ -7,10 +7,7 @@
     <list default="true" id="ef5a03d2-b6f1-4d91-bf33-df31dc444775" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RandomApp/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/RandomApp/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RandomApp/utils/Helper.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/RandomApp/utils/Helper.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RandomMenuLambda/AddFoodFunction/src/AddFoodFunction/Function.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RandomMenuLambda/AddFoodFunction/src/AddFoodFunction/Function.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RandomMenuLambda/SuggestNewFoodFunction/src/SuggestNewFoodFunction/Function.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RandomMenuLambda/SuggestNewFoodFunction/src/SuggestNewFoodFunction/Function.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RandomMenuLambda/src/RandomMenuLambda/obj/Debug/net8.0/RandomMenuLambda.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RandomMenuLambda/src/RandomMenuLambda/obj/Debug/net8.0/RandomMenuLambda.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RandomMenuLambda/src/RandomMenuLambda/obj/Debug/net8.0/RandomMenuLambda.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/RandomMenuLambda/src/RandomMenuLambda/obj/Debug/net8.0/RandomMenuLambda.AssemblyInfoInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RandomMenuLambda/test/RandomMenuLambda.Tests/obj/Debug/net8.0/RandomMenuLambda.Tests.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RandomMenuLambda/test/RandomMenuLambda.Tests/obj/Debug/net8.0/RandomMenuLambda.Tests.AssemblyInfo.cs" afterDir="false" />
